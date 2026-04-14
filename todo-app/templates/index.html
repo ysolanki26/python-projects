@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>✨ Smart To-Do App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>📝 My Smart To-Do List</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="✨ Enter your task..." required>
+        <button type="submit">➕ Add</button>
+    </form>
+
+    <a href="/clear" class="clear-btn">🗑️ Clear All</a>
+
+    <ul>
+        {% for task in tasks %}
+            <li class="{{ 'done' if task.done else '' }}">
+                {{ task.text }}
+
+                <div>
+                    <a href="/complete/{{ loop.index0 }}">✔️</a>
+                    <a href="/delete/{{ loop.index0 }}">❌</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
