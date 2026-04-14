@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Password Strength Checker 🔐</h1>
+
+    <form method="POST">
+        <input type="password" name="password" placeholder="Enter your password" required>
+
+        <br>
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+        <br><br>
+
+        <button type="submit">Check Strength</button>
+    </form>
+
+    {% if result %}
+        <h2 style="color: {{ result[2] }}">
+            Strength: {{ result[0] }}
+        </h2>
+
+        <ul>
+        {% for item in result[1] %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+<script>
+function togglePassword() {
+    var x = document.querySelector("input[name='password']");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+
+</body>
+</html>
