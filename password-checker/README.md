@@ -56,6 +56,7 @@ This system is used in industries such as banking, social media, and e-commerce 
 
 ## Author
 Yashika Solanki
+Riya
 
 ## Note
 This project demonstrates how Python can be applied in real-life cybersecurity applications.
